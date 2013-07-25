@@ -1,0 +1,45 @@
+<!-- Probably move the stylesheet to you layout. Also make sure you include the javascript. -->
+<%= stylesheet_link_tag "event_calendar" %>
+<%= javascript_include_tag "event_calendar" %>
+
+<div id="left-calendar" class="span-12">
+	<%= event_calendar %>
+</div>
+<div id='right-calendar' class="span-10 last">
+	<h1>Calendar</h1>
+	<p>Please browse through the calendar on the left.  The details of the event will be listed below.</p> 
+	<% if current_user != nil %>
+		<%= link_to "New Event", new_event_path, :class => "get" %>
+	<%end%>
+
+	<div id="calendar-loading-area">
+		<div id="loading" style="display: none">
+			Loading...
+		</div>
+		<div id = "new-page">
+		</div>
+	</div>
+
+
+</div>
+
+<script>
+	$('.get').click(function(){
+			$("#loading").show();
+	        $.get($(this).attr("href"), 
+				null, 
+				function(){ $('#loading').hide(); }, 
+				"script");
+	        return false;
+	});
+	
+	$('.ec-event a').click(function(){
+		$("#loading").show();
+        $.get($(this).attr("href"), 
+			null, 
+			function(){ $('#loading').hide(); },
+			"script");
+        return false;
+	});
+	
+</script>

@@ -1,0 +1,45 @@
+<div id="login-left" class="span-12">
+	<%= image_tag 'brother-picture06.png' %>
+</div>
+
+<div id="login-right" class="span-12 last">
+	<span class="flash-error"><%= flash[:errorlogin] %></span>
+	<% form_tag session_path, :class=>'iform' do -%>
+		<p style="position: relative"><%= label_tag 'login' %>
+		<%= text_field_tag 'login', @login, :class=>"itext" %></p>
+
+		<p style="position: relative"><%= label_tag 'password' %>
+		<%= password_field_tag 'password', nil, :class=>"itext" %></p>
+
+		<!-- Uncomment this if you want this functionality
+		<p><%= label_tag 'remember_me', 'Remember me' %>
+		<%= check_box_tag 'remember_me', '1', @remember_me %></p>
+		-->
+
+		<p><%= submit_tag 'Log in', :class=>'ibutton' %></p>
+		 <%= link_to " > Lost Password?", lost_password_path %>
+	<% end -%>
+</div>
+
+<style>
+#login-left{
+
+}
+#login-right{
+	margin: 80px 0;
+}
+
+#login-left img{
+	display: block;
+	margin:80px auto;
+}
+
+</style>
+
+<%= javascript_include_tag 'jquery.infieldlabel.js' %>
+
+<script>
+	$(document).ready(function(){
+	  $("label").inFieldLabels();
+	});
+</script>

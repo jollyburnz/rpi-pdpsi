@@ -1,0 +1,107 @@
+<!--
+<div id="left" class="span-6">
+<div class="left-header">
+<h1>CONTACT</h1>
+<p>Have questions or comments? Need help with the website or looking for assistance? Let us know what we can do to help.</p>
+</div>
+</div>
+<div id="right" class="span-16 last">
+
+<div class="span-9">
+	<p>Simply shoot us an email.  <br/>We'll respond to them as soon as possible.
+	<% form_for(:contact_handler, :url => contact_url, :html => { :class => 'contact iform' }) do |f| %>
+	  <p style="position: relative">
+	    <%= f.label :subject %>
+	    <%= f.text_field :subject, :class=>"itext" %>
+	  </p>
+
+	  <p style="position: relative">
+	    <%= f.label :body %>
+	    <%= f.text_area :body, :class=>"itextarea" %>
+	  </p>
+
+	  <p style="position: relative">
+	    <%= f.label :email %>
+	    <%= f.text_field :email, :class=>"itext" %>
+	  </p>
+
+	  <p style="position: relative">
+	    <%= f.submit 'send', :class=>"ibutton" %>
+		</p>
+	<% end %>
+	</div>
+	<div class="span-6 last">
+		<div id="brother-contact">
+			<p>Contact information of all brothers holding positions.
+			<ul>
+			<li>blah blah blah</li>
+			<li>blah blah blah</li>
+			<li>blah blah blah</li>
+			<li>blah blah blah</li>
+			<li>blah blah blah</li>
+			<li>blah blah blah</li>
+			</ul>
+			<p>I still need to do a lot of crap with this page</p>
+		</div>
+		<%= error_messages_for('contact_handler') %>
+	</div>
+</div>
+
+<%= javascript_include_tag 'jquery.infieldlabel.js' %>
+
+<style>
+#brother-contact{
+border: 1px solid #CCCCCC;
+background: #FFFFFF;
+height: 300px;
+padding: 10px
+}
+</style>
+
+<script>
+	$(document).ready(function(){
+	  $("label").inFieldLabels();
+	});
+</script>
+-->
+
+<!--<div class="span-5">
+	<%#= image_tag 'contact01.png', :style=>'position: relative; top: 120px; left: 35px' %>
+</div>-->
+<div class="prepend-top span-19 prepend-2 last">
+	<h1>CONTACT</h1>
+	<p>Have questions or comments? Need help with the website or looking for assistance? Let us know what we can do to help.</p>
+
+	<p>Simply shoot us an email. We'll respond to them as soon as possible.</p>
+
+	<%#= error_messages_for('contact_handler') %>
+	<span class="flash-notice"><%= flash[:notice] %></span>
+	<% form_for(:contact_handler, :url => contact_url, :html => { :class => 'contact iform' }) do |f| %>
+		<p style="position: relative">
+		  <%= f.label :email %>
+		  <%= f.text_field :email, :class=>"itext" %>
+		</p>
+
+		<p style="position: relative">
+		  <%= f.label :subject %>
+		  <%= f.text_field :subject, :class=>"itext" %>
+		</p>
+
+		<p style="position: relative">
+		  <%= f.label :body %>
+		  <%= f.text_area :body, :class=>"itextarea" %>
+		</p>
+
+		<p style="position: relative">
+		  <%= f.submit 'send', :class=>"ibutton" %>
+		</p>
+	<% end %>
+</div>
+
+<%= javascript_include_tag 'jquery.infieldlabel.js' %>
+
+<script>
+	$(document).ready(function(){
+	  $("label").inFieldLabels();
+	});
+</script>

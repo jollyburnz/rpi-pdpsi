@@ -1,0 +1,22 @@
+<br/>
+<h1>Editing user</h1>
+<p>
+  <%=@user.login %>
+</p>
+
+<% form_for(@user, :html => { :multipart => true }) do |f| %>
+  <%= f.error_messages %>
+  <p><%= f.label :email %><br/>
+	<%= f.text_field :email %>
+  </p>
+  <p>
+	<%= f.label :avatar, "Avatar" %><br/>
+	<%= f.file_field :avatar %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @user%> |
+<%= link_to 'Back', :back %>

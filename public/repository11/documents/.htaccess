@@ -1,0 +1,6 @@
+<FilesMatch "\.(gif|jpe?g|png)$">
+AuthUserFile /home2/linslaun/rails_apps/pideltapsi/.htpasswd
+AuthType Basic
+AuthName "Repository"
+Require valid-user
+</FilesMatch>

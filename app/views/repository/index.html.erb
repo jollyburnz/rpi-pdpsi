@@ -1,0 +1,70 @@
+<%= stylesheet_link_tag "jqueryFileTree" %>
+<%= javascript_include_tag "jqueryFileTree" %>
+
+<div class="span-11 append-1" style="margin-top: 40px">
+	<h1>Repository</h1>
+	<p> Welcome to RPI PDPSI Repository.  The aim of this repository is to collect important fraterity-related documents and/or past academic works that present/future brothers could utiltize.  Hopefully the familiar file browser design will help you browse through the files easier. </p> 
+	<br/>
+	<a id="inline" class="button" href="#upload-form">Upload File</a>
+	<br/>
+	<br/>
+	<br/>
+	<span class="flash-notice"><%= flash[:status] %></span>
+	<span class="flash-error"><%= flash[:error] %></span>
+	
+	<div style="display:none">
+		<div id="upload-form">
+			<% form_for :document, @document, :url=>{:action=>'create'}, :html => { :multipart => true, :method => "post"} do |form| %>
+			  <%= form.label :file_type, "Please select the folder to store your file" %><br/>
+			  <%#= form.select (:file_type, ['Compressed_file', 'Document', 'Image']) %>
+			  <%= form.radio_button :file_type, 'Compressed_file' %> Compressed File<br/>
+			  <%= form.radio_button :file_type, 'Document' %> Document<br/>
+			  <%= form.radio_button :file_type, 'Image' %> Image<br/><br/>
+	
+			  <%= form.file_field :doc %><br/><br/>
+			  <%= form.submit 'UPLOAD' %>&nbsp;&nbsp;<a onclick="$.fancybox.close();" href="javascript:;">Cancel</a>
+			<% end %>
+		</div>
+	</div>
+	
+</div>
+
+<div class="span-12 last" style="margin-top: 40px">
+	<!--<div id="fileTree" class="demo"></div>-->
+</div>
+
+<script type="text/javascript">
+	
+    $(document).ready( function() {
+        $('#fileTree').fileTree({ root: '../uploads/', script: 'repository/content' }, function(file) {
+            open(file);
+        });
+
+		$("a#inline").fancybox({
+			'modal': true,
+			'centerOnScroll':true
+		});
+    });
+
+</script>
+
+<style type="text/css">
+
+	#upload-form{
+		height: 150px;
+		width: 400px;
+		background: #FFFFFF;
+		padding: 40px;
+	}
+
+    .demo{
+        background-color:#FFFFFF;
+        border-color:#BBBBBB #FFFFFF #FFFFFF #BBBBBB;
+        border-style:solid;
+        border-width:1px;
+        height:400px;
+        overflow:scroll;
+        padding:5px;
+        width:400px;
+    }
+</style>

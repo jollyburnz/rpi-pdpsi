@@ -1,0 +1,119 @@
+<div style="padding: 40px 0; float: left">
+	<div class="span-12">
+		<h1>Excellence Through Brotherhood</h1>
+		<p>The mission of Pi Delta Psi Fraternity, Inc. is to maintain its Fraternal existence by instilling values that nurture and perpetuate the continual growth and development of the individual through Academic Achievement, Cultural Awareness, Righteousness, Friendship and Loyalty while fostering ethical behavior, leadership, and philanthropy.</p>
+		<br/>
+		<%= link_to "Learn More", {:controller => 'about', :action => 'index'}, :class=>'button'  %>
+	</div>
+	<div class="span-12 last">
+		<%= image_tag 'pdpsifrontpagebanner.png' %>
+	</div>
+</div>
+
+<div class="span-24" style="background: url(../images/logos-background06.png)">
+
+	<div id="gallery-bottom"></div>
+	
+		<div class="span-7">
+			<div id="gallery-home-left">
+				<h1>GALLERIES</h1>
+				<p>Galleries are fun to look at and waste time.  The galleries are separated by semester, so it's easier to browse through. Go ahead, check them out and enjoy!</p>
+				<%= link_to 'Go to Gallery Home &rarr;', galleries_path, :class=>'button1' %>
+			</div>
+		</div>
+		<div class="prepend-1 span-16 last">
+			<a id="v2_prev" href="#">&larr; prev </a>
+			<div id="gallery-carousel">
+				<% @galleries.each do |gallery| %>
+					<div class="gallery-home">
+						<div class="gallery-home-shadow">
+							<div class="gallery-home-content">
+								<%= link_to image_tag(gallery.photos.first.image(:thumb)), gallery %>
+							</div>
+							<div class="gallery-home-title">
+								<%= gallery.title %>
+							</div>
+						</div>
+						<%= link_to "View Gallery", gallery, :class=>'gallery-home-link'%>
+					</div>
+				<% end %>
+			</div>
+			 <a id="v2_next" href="#"> next &rarr;</a>
+		</div>
+		
+	<div id="gallery-top"></div>
+	
+</div>
+
+<div id="rush-home" class="span-11">
+	<%#= image_tag 'crest2.png' %>
+	<%= link_to "Learn more", {:controller =>'rush', :action=>'index'}, :id=>'rush-home-link' %>
+	<div>
+		<p>Rush is a period for you to meet the brothers of Pi Delta Psi. By throwing events for our rushes to attend, we hope to provide an opportunity for you to get to know the brothers better and to learn more about the fraternity.</p>
+		<%= link_to "Learn more", {:controller =>'rush', :action=>'index'}, :class=>'button1' %>
+	</div>
+</div>
+
+<div id="calendar-home" class="span-12 last">
+	<%= image_tag 'calendar.png' %>
+	<div>
+		<h1>Calendar</h1>
+		<p>Please browse through our calendar to find what events RPI Pi Delta Psi are holding.</p>
+		<%# @events.each do |event| %>
+			<%#= event.name %>
+		<%# end %>
+		<%= link_to 'Go to Calendar', calendar_path, :class=>'button1' %>
+	</div>
+</div>
+
+<!--[if IE]>
+<style type="text/css">
+.gallery-home-shadow{
+    filter:
+    progid:DXImageTransform.Microsoft.Shadow(color='#042b47', Direction=45, Strength=1)
+    progid:DXImageTransform.Microsoft.Shadow(color='#042b47', Direction=135, Strength=1)
+    progid:DXImageTransform.Microsoft.Shadow(color='#042b47', Direction=225, Strength=1)
+    progid:DXImageTransform.Microsoft.Shadow(color='#042b47', Direction=315, Strength=1);
+    position: relative;
+    top: -12px;
+    left: -12px;
+    zoom: 1;
+}
+</style>
+<![endif]-->
+
+<style>
+
+.gallery-home-shadow{
+	background: green; /* must use for IE */
+	-webkit-box-shadow: 0px 0px 4px #999;
+	-moz-box-shadow: 0px 0px 4px #999;
+	box-shadow: 0px 0px 4px #999;
+}
+</style>
+
+<script>
+	$(document).ready(function() {
+		$("#gallery-carousel").carouFredSel({
+			height				: 207,
+			width				: 475,
+			auto				: false,
+			items				: 3,
+			scroll : {
+				items			: 3,
+				effect			: "easeOutBounce",
+				duration		: 1000,							
+				pauseOnHover	: true
+			},
+			prev : {	
+				button	: "#v2_prev",
+				key		: "left"
+			},
+			next : { 
+				button	: "#v2_next",
+				key		: "right"
+			}
+		});				
+	});	
+
+</script>

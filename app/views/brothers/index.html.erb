@@ -1,0 +1,112 @@
+<style>
+.tip {
+    color: #666;
+    background:#1d1d1d;
+    display:none; /*--Hides by default--*/
+    padding:10px;
+    position:absolute;    z-index:1000;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.tip h1{
+	margin: 0;
+}
+.tip .pledge-class{
+	display: block;
+	text-align: right;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #333;
+}
+.tip .name{
+	border-top: 1px solid #222;
+	display: block;
+	padding: 10px 0 0;
+}
+</style>
+
+<div id="left-brothers" class="span-5">
+	<ul>
+		<% @brothers.each do |brother| %>
+			<%= "<div id='bro-left-#{brother.id}'>" %>
+				<li><%= link_to brother.name ,roster_show_path(brother) %></li>
+			</div>
+		<%end%>
+	</ul>
+</div>
+<div id="right-brothers" class="span-18 last">
+
+<% @brothers.each do |brother| %>
+		<%= "<div id='bro-#{brother.id}' class='brothers'>" %>
+	 	<% link_to roster_show_path(brother), :class=>"tip_trigger" do %>
+	    	<%= image_tag brother.photo(:bw), {:class=>'bw-overlay', :style=>'display:none'} %>
+		    <%= image_tag brother.photo(:thumb), {:class=>'colored', :style=>'display:none'} %>
+			<span class="loader-brother"></span>
+			<span class="tip">
+				<h1><%= image_tag 'logo-brothers.png' %> <%=h brother.pledge_name %></h1>
+				<span class="pledge-class"><%=h brother.pledge_class %></span>
+				<span class="name"><%=h brother.name %></span>
+			</span>
+		<% end %>
+			<div>
+			<!--
+		  <%= link_to 'Show', brother %>
+			<%= link_to 'Edit', edit_brother_path(brother) %>
+			<%= link_to 'Destroy', brother, :confirm => 'Are you sure?', :method => :delete %>
+			-->
+		</div>
+	</div>
+<% end %>
+</div>
+
+<br />
+<% if current_user != nil %>
+	<%= link_to 'New brother', roster_new_path %>
+<% end %>
+
+<script>
+
+$(document).ready(function(){
+	$('.brothers').each(function(){
+		var broid = $(this).attr("id");
+		//console.log(broid);
+		$("#"+broid).find('img').delay(2000).fadeIn('slow');
+	});
+});
+
+$('.brothers a').hover(
+	function(){
+		jQuery(this).find('.bw-overlay').fadeOut('fast');
+	},
+	function(){
+		jQuery(this).find('.bw-overlay').fadeIn('fast');
+	}
+);
+
+$(document).ready(function() {
+	//Tooltips
+	$(".tip_trigger").hover(function(){
+		tip = $(this).find('.tip');
+		tip.show(); //Show tooltip
+	}, function() {
+		tip.hide(); //Hide tooltip		  
+	}).mousemove(function(e) {
+		var mousex = e.pageX + 20; //Get X coodrinates
+		var mousey = e.pageY + 20; //Get Y coordinates
+		var tipWidth = tip.width(); //Find width of tooltip
+		var tipHeight = tip.height(); //Find height of tooltip
+		
+		//Distance of element from the right edge of viewport
+		var tipVisX = $(window).width() - (mousex + tipWidth);
+		//Distance of element from the bottom of viewport
+		var tipVisY = $(window).height() - (mousey + tipHeight);
+		  
+		if ( tipVisX < 20 ) { //If tooltip exceeds the X coordinate of viewport
+			mousex = e.pageX - tipWidth - 20;
+		} if ( tipVisY < 20 ) { //If tooltip exceeds the Y coordinate of viewport
+			mousey = e.pageY - tipHeight - 20;
+		} 
+		tip.css({  top: mousey, left: mousex });
+	});
+});
+</script>

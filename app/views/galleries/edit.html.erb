@@ -1,0 +1,45 @@
+<div id="left-gallery" class="span-15">
+	<div id="edit-photo-gallery">
+		<% @photos.each do |photo| %>
+			<div class="edit-photo">
+				<%= image_tag photo.image(:bw), :id=> photo.image.id, :class=>"edit-photo-image" %>
+				<span class="edit-photo-delete" style="display: none"><%= link_to 'Delete', photo, :confirm => 'Are you sure?', :method => :delete %></span>
+			</div>
+		<% end %>
+	</div>
+</div>
+
+<div id="right-gallery" class="span-7 last">
+	<h1><%=h @gallery.title %></h1>
+
+	<%= link_to 'Show', @gallery %>
+
+	<% form_for(@gallery) do |f| %>
+	  <%= f.error_messages %>
+
+	  <p>
+	    <%= f.label :title %><br />
+	    <%= f.text_field :title %>
+	  </p>
+	  <p>
+	    <%= f.submit 'Update' %>
+	  </p>
+	<% end %>
+
+	<% form_for Photo.new(:gallery_id => @gallery.id), :html => {:multipart => true} do |f| %>
+		<%= f.hidden_field :gallery_id, "value" => @gallery.id %>
+		<%= f.file_field :image %><br/>
+		<%= f.submit "Upload" %>
+	<% end %>
+</div>
+
+<script>
+$(".edit-photo").hover(
+	function(){
+		$(this).find('.edit-photo-delete').show();
+	},
+	function(){
+		$(this).find('.edit-photo-delete').hide();
+	}
+);
+</script>

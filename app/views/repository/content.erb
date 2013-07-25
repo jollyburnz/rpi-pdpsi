@@ -1,0 +1,13 @@
+<%#=h @dir[0].inspect %>
+<%#=h  Jqueryfiletree.new("").get_content.inspect %>
+
+
+<ul class="jqueryFileTree" style="display: none;">
+    <% @dir[0].each do |dir| %>
+	<li class="directory collapsed">
+		<a href="#" rel="<%=@parent+dir %>/"><%= dir %></a></li>
+    <% end %>
+	<% @dir[1].each do |file|%>
+    <li class="file ext_<%=File.extname(file)[1..-1]%>"><a href="#" rel="<%='repository/'+file %>"><%= file %></a></li>
+    <% end %>
+</ul>

@@ -1,0 +1,355 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+1:
+  id: 1
+  name: Tuong Phan
+  pledge_name: Mongo
+  pledge_class: Alpha Class
+  crossing: Spring 1997
+  ethnicity: Vietnamese
+  hometown: Queens, NY
+  alumnus: 1
+2:
+  id: 2
+  name: Christopher Wong
+  pledge_name: Crack
+  pledge_class: Beta Class
+  crossing: Fall 2001
+  ethnicity: Chinese
+  hometown: Queens, NY
+  alumnus: 1
+3:
+  id: 3
+  name: Kenji Yangisawa
+  pledge_name: P'zone
+  pledge_class: Gamma Class
+  crossing: Spring 2002
+  ethnicity: Japanese/Russian
+  hometown: Stormville, NY
+  alumnus: 1
+4:
+  id: 4
+  name: Jiang Chen
+  pledge_name: JBL
+  pledge_class: Gamma Class
+  crossing: Spring 2002
+  ethnicity: Chinese
+  hometown: New York City
+  alumnus: 1
+5:
+  id: 5
+  name: Viet Nguyen
+  pledge_name: Quartz
+  pledge_class: Delta Class
+  crossing: Fall 2002
+  ethnicity: Vietnamese
+  hometown: Chelmsford, MA
+  alumnus: 1
+6:
+  id: 6
+  name: Jackson Lin
+  pledge_name: Burnz
+  pledge_class: Delta Class
+  crossing: Fall 2002
+  ethnicity: Chinese
+  hometown: Brooklyn, NY
+7:
+  id: 7
+  name: Peter Tu
+  pledge_name: el'Duke
+  pledge_class: Delta Class
+  crossing: Fall 2002
+  ethnicity: Chinese
+  hometown: Braintree, MA
+  alumnus: 1
+8:
+  id: 8
+  name: Kuang Zhu Yang
+  pledge_name: Desperado
+  pledge_class: Delta Class
+  crossing: Fall 2002
+  ethnicity: Chinese
+  hometown: Brooklyn, NY
+  alumnus: 1
+9:
+  id: 9
+  name: Daniel Ling
+  pledge_name: Otter
+  pledge_class: Delta Class
+  crossing: Fall 2002
+  ethnicity: Chinese
+  hometown: Holtsville, NY
+  alumnus: 1
+10:
+  id: 10
+  name: David Cheung
+  pledge_name: A.I.
+  pledge_class: Delta Class
+  crossing: Fall 2002
+  ethnicity: Chinese
+  hometown: Lexington, MA
+  alumnus: 1
+11:
+  id: 11
+  name: Bao Nguyen
+  pledge_name: Ghost
+  pledge_class: Zeta Class
+  crossing: Fall 2003
+  ethnicity: Vietnamese
+  hometown: Dover, NJ
+  alumnus: 1
+12:
+  id: 12
+  name: James Ku
+  pledge_name: Hova
+  pledge_class: Zeta Class
+  crossing: Fall 2003
+  ethnicity: Chinese
+  hometown: Queens, NY
+  alumnus: 1
+13:
+  id: 13
+  name: Brady Chan
+  pledge_name: Gadget
+  pledge_class: Zeta Class
+  crossing: Fall 2003
+  ethnicity: Chinese
+  hometown: Poughkeepsie, NY
+  alumnus: 1
+14:
+  id: 14
+  name: Ron Yoon
+  pledge_name: Gridlock
+  pledge_class: Zeta Class
+  crossing: Fall 2003
+  ethnicity: Korean
+  hometown: Great Necks, NY
+  alumnus: 1
+15:
+  id: 15
+  name: Daniel Wong
+  pledge_name: Project
+  pledge_class: Zeta Class
+  crossing: Fall 2003
+  ethnicity: Chinese
+  hometown: Bayside, NY
+  alumnus: 1
+16:
+  id: 16
+  name: Henry Kwan
+  pledge_name: Diable
+  pledge_class: Zeta Class
+  crossing: Fall 2003
+  ethnicity: Chinese
+  hometown: Brooklyn, NY
+  alumnus: 1
+17:
+  id: 17
+  name: Clifton Dong
+  pledge_name: Tigger
+  pledge_class: Zeta Class
+  crossing: Fall 2003
+  ethnicity: Chinese
+  hometown: Fresh Meadows, NY
+  alumnus: 1
+18:
+  id: 18
+  name: Andrew Ku
+  pledge_name: Virus
+  pledge_class: Eta Class
+  crossing: Fall 2004
+  ethnicity: Chinese
+  hometown: Queens, NY
+  alumnus: 1
+19:
+  id: 19
+  name: Victor Kong
+  pledge_name: Plaque
+  pledge_class: Eta Class
+  crossing: Fall 2004
+  ethnicity: Chinese
+  hometown: New York, NY
+  alumnus: 1
+20:
+  id: 20
+  name: Nathan Tam
+  pledge_name: Magnus
+  pledge_class: Eta Class
+  crossing: Fall 2004
+  ethnicity: Chinese
+  hometown: Staten Island, NY
+  alumnus: 1
+21:
+  id: 21
+  name: Jee Ho Kim
+  pledge_name: Sad Panda
+  pledge_class: Eta Class
+  crossing: Fall 2004
+  ethnicity: Korean
+  hometown: Holden, NY
+  alumnus: 1
+22:
+  id: 22
+  name: Geoffrey Abella
+  pledge_name: Diglett
+  pledge_class: Eta Class
+  crossing: Fall 2004
+  ethnicity: Filipino
+  hometown: New Hyde Park, NY
+  alumnus: 1
+23:
+  id: 23
+  name: Jon Wu
+  pledge_name: Roxbury
+  pledge_class: Theta Class
+  crossing: Fall 2005
+  ethnicity: Chinese
+  hometown: Chershire, CT
+  alumnus: 1
+24:
+  id: 24
+  name: Jason Ching
+  pledge_name: Dubz
+  pledge_class: Theta Class
+  crossing: Fall 2005
+  ethnicity: Chinese
+  hometown: Fresh Meadows, NY
+  alumnus: 1
+25:
+  id: 25
+  name: Kevin Eng
+  pledge_name: Xzibit
+  pledge_class: Iota Class
+  crossing: Fall 2006
+  ethnicity: Chinese
+  hometown: Brooklyn, NY
+  alumnus: 1
+26:
+  id: 26
+  name: Sze Yin Tam
+  pledge_name: Half-Life
+  pledge_class: Iota Class
+  crossing: Fall 2006
+  ethnicity: Chinese
+  hometown: Brooklyn, NY
+  alumnus: 1
+27:
+  id: 27
+  name: Andrew Kayserian
+  pledge_name: Gateway
+  pledge_class: Iota Class
+  crossing: Fall 2006
+  ethnicity: Armenian
+  hometown: Queens, NY
+  alumnus: 1
+28:
+  id: 28
+  name: Keve G. Zoltani
+  pledge_name: Syndrome
+  pledge_class: Iota Class
+  crossing: Fall 2006
+  ethnicity: Hungarian
+  hometown: Luterville, MD
+  alumnus: 1
+29:
+  id: 29
+  name: Saadat Kalam
+  pledge_name: Ali Q
+  pledge_class: Kappa Class
+  crossing: Fall 2007
+  ethnicity: Bengali
+  hometown: Queens, NY
+  alumnus: 1
+30:
+  id: 30
+  name: Justin Chung
+  pledge_name: Lapse
+  pledge_class: Kappa Class
+  crossing: Fall 2007
+  ethnicity: Korean
+  hometown: Loudonville, NY
+  alumnus: 0
+31:
+  id: 31
+  name: Stephen Chiang
+  pledge_name: T-Mobile
+  pledge_class: Lambda Class
+  crossing: Fall 2008
+  ethnicity: Taiwanese
+  hometown: Lexington, MA
+  alumnus: 0
+32:
+  id: 32
+  name: Gavin Templar
+  pledge_name: Mad Hatter
+  pledge_class: Mu Class
+  crossing: Spring 2009
+  ethnicity: Jamaican
+  hometown: Kingston, Jamaica
+  alumnus: 0
+33:
+  id: 33
+  name: Clifford Chen
+  pledge_name: Honos
+  pledge_class: Nu Class
+  crossing: Fall 2009
+  ethnicity: Taiwanese
+  hometown: Palo Alto, CA
+  alumnus: 0
+34:
+  id: 34
+  name: Marcus Wong
+  pledge_name: Reverb
+  pledge_class: Nu Class
+  crossing: Fall 2009
+  ethnicity: Cantonese
+  hometown: San Jose, CA
+  alumnus: 0
+35:
+  id: 35
+  name: Brian Yu
+  pledge_name: Bumble Bee
+  pledge_class: Omicron Class
+  crossing: Fall 2010
+  ethnicity: n/a
+  hometown: n/a
+  alumnus: 0
+36:
+  id: 36
+  name: Tim Lim
+  pledge_name: Fury
+  pledge_class: Omicron Class
+  crossing: Fall 2010
+  ethnicity: n/a
+  hometown: n/a
+  alumnus: 0
+37:
+  id: 37
+  name: Phil Kuang
+  pledge_name: Immortal
+  pledge_class: Omicron Class
+  crossing: Fall 2010
+  ethnicity: n/a
+  hometown: n/a
+  alumnus: 0
+  
+38:
+  id: 38
+  name: Magesh Aligiriraj
+  pledge_name: Trident
+  pledge_class: Omicron Class
+  crossing: Fall 2010
+  ethnicity: n/a
+  hometown: n/a
+  alumnus: 0
+39:
+  id: 39
+  name: Jon Browning
+  pledge_name: G-Money
+  pledge_class: Omicron Class
+  crossing: Fall 2010
+  ethnicity: n/a
+  hometown: n/a
+  alumnus: 0
+
+          

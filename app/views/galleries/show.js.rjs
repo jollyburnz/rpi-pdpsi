@@ -1,0 +1,13 @@
+
+#$("#images").html("<%= escape_javascript(render :partial => "show") %>");
+page.insert_html :bottom, :images, :partial => 'show'
+page.hide 'images-partial_' + @page
+page.visual_effect :blind_down, 'loader', :duration => 0.5
+page.delay(2.0) do
+  page.visual_effect :appear, 'images-partial_' + @page, :duration => 1.0
+  page.hide 'loader'
+end
+
+
+page.replace :flow_pagination, will_paginate(@photos1,
+  :renderer => FlowPagination::LinkRenderer)
