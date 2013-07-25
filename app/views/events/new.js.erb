@@ -1,0 +1,13 @@
+$("#new-page").html("<%= escape_javascript(render :partial => 'events/new') %>");
+//<![CDATA[
+tinyMCE.init({
+editor_selector : 'mceEditor',
+language : 'en',
+mode : 'textareas',
+theme : 'advanced',
+theme_advanced_toolbar_location : "top",
+theme_advanced_toolbar_align : "left",
+theme_advanced_statusbar_location : "bottom"
+
+});
+//]]>

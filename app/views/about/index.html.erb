@@ -1,0 +1,29 @@
+<div id="left-about" class="span-5">
+	<ul id="about-side">
+		<li class="active"><%= link_to 'Introduction', :controller => 'about', :action => 'index' %></li>
+		<li><%= link_to 'Fraternity History', :controller => 'about', :action => 'history' %></li>
+		<li><%= link_to 'Mission Statement', :controller => 'about', :action => 'mission' %></li>	
+	</ul>
+	<%= image_tag 'crest.png', :style=>'margin: 40px 39px;' %>	
+</div>
+
+<div id="right-about" class="span-18 last">
+	<div>
+		<h1>ABOUT PI DELTA PSI</h1>	
+		<p>Knowledge, Righteousness, Camaraderie and Heritage. These are fundamental ingredients necessary for individuals to become strong and respected leaders for the future. Pi Delta Psi Fraternity through its actions, beliefs and structure actively instills these ingredients during and after an individual's academic years. The Fraternity provides opportunities for individuals to become great thinkers, activists and role models.</p>
+	</div>
+</div>
+
+<!--
+<div class="span-6">
+	<ul id="about-side">
+		<li><%= link_to 'Why Pi Delta Psi?', :controller => 'rush', :action => 'why' %></li>
+		<li class="active"><%= link_to 'Frequently Asked Question', :controller => 'rush', :action => 'faq' %></li>	
+	</ul>
+</div>
+
+<div class="span-16 append-1 prepend-1 last">
+	<h1>FAQ#index</h1>
+	<p>Find me in app/views/about/index.html.erb</p>
+</div>
+-->

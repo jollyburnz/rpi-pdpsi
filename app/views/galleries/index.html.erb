@@ -1,0 +1,141 @@
+<div class="span-24" style="margin: 40px 0 0px">
+<h1>Rensselaer Polytechnic Institute <br/>
+PI DELTA PSI Galleries</h1>
+</div>
+
+<div id="gallery-bottom"></div>
+
+<div class="span-17">
+<% @galleries.each do |gallery| %>
+	<div class="gallery-home">
+		<div class="gallery-home-shadow">
+			<div class="gallery-home-content">
+				<%= link_to image_tag(gallery.photos.first.image(:thumb)), gallery %>
+			</div>
+			<div class="gallery-home-title">
+				<%= gallery.title %>
+			</div>
+		</div>
+		<%= link_to "View Gallery", gallery, :class=>'gallery-home-link'%>
+	</div>
+<% end %>
+</div>
+<div class="span-7 last">
+	<!--<p>To all of you, wherever you are, we welcome you to our photo gallery !! This site is dedicated to our family and friends out there, please tell us where you are, we are waiting for you to reach us. Please do not hesitate exploring our pages to find out what we are doing now. We hope you enjoy our site and will be back to see us again. We are always adding new pictures and things to the site. Don't forget to leave a message so we know that you were here. Enjoy your visit! Cheers.</p>-->
+	<div id="gallery-index-right">
+		Feel free to browse our photo gallery and see how Pi Delta Psi is both a fun and rewarding Fraternity to be a part of.
+		<% if current_user != nil %>
+			<br/>
+			<br/>
+			<%= link_to 'New gallery', new_gallery_path %>
+		<% end %>
+	</div>
+</div>
+
+
+<!--
+<div class="span-24">
+	<table>
+	  <tr>
+	    <th>Title</th>
+	  </tr>
+	<% @galleries.each do |gallery| %>
+	  <tr>
+	    <td><%=h gallery.title %></td>
+	    <td><%= link_to 'Show', gallery %></td>
+	    <td><%= link_to 'Edit', edit_gallery_path(gallery) %></td>
+	    <td><%= link_to 'Destroy', gallery, :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+
+	<br />
+</div>
+
+<div class="span-24">
+	<div id='gallery-index'>
+		<a id="v2_prev" href="#">&larr; prev </a>
+		<div id="gallery-carousel">
+			<% @galleries.each do |gallery| %>
+				<div class="gallery-home">
+					<div class="gallery-home-shadow">
+						<div class="gallery-home-content">
+							<%= link_to image_tag(gallery.photos.first.image(:thumb)), gallery %>
+						</div>
+						<div class="gallery-home-title">
+							<%= gallery.title %>
+						</div>
+					</div>
+					<%= link_to "View Gallery", gallery, :class=>'gallery-home-link'%>
+				</div>
+			<% end %>
+		</div>
+		 <a id="v2_next" href="#"> next &rarr;</a>
+	</div>
+</div>
+-->
+
+<!--[if IE]>
+<style type="text/css">
+.gallery-home-shadow{
+    filter:
+    progid:DXImageTransform.Microsoft.Shadow(color='#042b47', Direction=45, Strength=1)
+    progid:DXImageTransform.Microsoft.Shadow(color='#042b47', Direction=135, Strength=1)
+    progid:DXImageTransform.Microsoft.Shadow(color='#042b47', Direction=225, Strength=1)
+    progid:DXImageTransform.Microsoft.Shadow(color='#042b47', Direction=315, Strength=1);
+    position: relative;
+    top: -12px;
+    left: -12px;
+    zoom: 1;
+}
+</style>
+<![endif]-->
+
+<style>
+
+
+.gallery-home-shadow{
+	background: green; /* must use for IE */
+	-webkit-box-shadow: 0px 0px 4px #999;
+	-moz-box-shadow: 0px 0px 4px #999;
+	box-shadow: 0px 0px 4px #999;
+}
+
+#gallery-index{
+padding: 0 25px;
+float: left;
+}
+
+#gallery-index-right{
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 1px solid #DDDDDD;
+	margin: 50px 0 0;
+	padding: 20px;
+}
+</style>
+
+<script>
+	$(document).ready(function() {
+		$("#gallery-carousel").carouFredSel({
+			height				: 207,
+			width				: 790,
+			auto				: false,
+			items				: 5,
+			scroll : {
+				items			: 1,
+				effect			: "easeOutBounce",
+				duration		: 1000,							
+				pauseOnHover	: true
+			},
+			prev : {	
+				button	: "#v2_prev",
+				key		: "left"
+			},
+			next : { 
+				button	: "#v2_next",
+				key		: "right"
+			}
+		});				
+	});	
+
+</script>

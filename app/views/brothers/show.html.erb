@@ -1,0 +1,46 @@
+ <div id="left-brothers" class="span-5">
+	<ul>
+		<% @brothers.each do |b| %>
+			<% if @brother.id == b.id %>
+				<li><%= link_to b.name, roster_show_path(b), :class=>'active' %></li>
+			<% else %>
+				<li><%= link_to b.name, roster_show_path(b) %></li>
+			<% end %>
+		<% end %>
+	</ul>
+</div>
+
+<div class="span-19 last">
+	<%= link_to '&larr; Back to Roster Home', roster_path, :id=>'back-brothers' %>
+</div>
+<div id="right-brothers-show" class="span-18 last">
+	<div class="span-5">
+		<%= image_tag @brother.photo(:show), :style=>'border: 1px solid #ccc; padding: 5px;' %>
+	</div>
+	<div class="span-13 last">
+		<div class="brothers_info">
+			<dl class="basic_info">
+				<dt>Basic Info</dt>
+				<dd><span class="info_title">Name:</span><%=h @brother.name %></dd>
+				<dd><span class="info_title">Hometown:</span><%=h @brother.hometown %></dd>
+				<dd><span class="info_title">Ethnicity:</span><%=h @brother.ethnicity %></dd>
+			</dl>
+			<dl class="bros_info">
+				<dt>Brothers Info</dt>
+				<dd><span class="info_title">Pledge Name:</span><%=h @brother.pledge_name %></dd>
+				<dd><span class="info_title">Pledge Class:</span><%=h @brother.pledge_class %></dd>
+				<dd><span class="info_title">Crossing:</span><%=h @brother.crossing %></dd>
+			</dl>
+			<dl class="contact_info">
+				<dt>Bio</dt>
+				<dd><%=h @brother.bio %></dd>
+			</dl>
+			<span style="margin: 0 0 0 30px; float: left;">
+				<% if current_user != nil %>
+					<%= link_to 'Edit', roster_edit_path(@brother) %>
+				<% end %>
+			</span>
+			</dl>
+		</div>
+	</div>
+</div>

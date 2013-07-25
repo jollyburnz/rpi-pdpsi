@@ -1,0 +1,43 @@
+<script>
+	jQuery.noConflict();
+</script>
+
+<%= javascript_include_tag :defaults %>
+
+<div id="left-gallery" class="span-15">
+	<%= link_to '&larr; Back to Gallery Home', galleries_path, :id=>"back-gallery" %>
+	<div id="images" style="display: none">
+		<%= render :partial => "show" %>
+	</div>
+	<span id="loader" style="display: none"></span>
+	<%= will_paginate @photos1, :renderer => FlowPagination::LinkRenderer %>
+</div>
+
+<div id="right-gallery" class="span-7 last">
+	<h1><%=h @gallery.title %></h1>
+	<% if current_user != nil %>
+		<%= link_to 'Edit', edit_gallery_path(@gallery) %>
+	<% end %>
+
+	<%#= will_paginate @photos1%>
+</div>
+
+<script>
+jQuery(document).ready(function() {
+	jQuery("#loader").show().delay(1000).slideUp(1000);
+	jQuery("#images").delay(2000).fadeIn();
+});
+
+jQuery("#flow_pagination input").mouseover(function(){
+	jQuery(this).css("background", "#58B7DD");
+}).mouseout(function(){
+	jQuery(this).css("background", "#333333");
+});
+</script>
+
+<style>
+	#back-gallery{
+		display: block;
+		margin-bottom: 10px;
+	}
+</style>

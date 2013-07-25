@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title><%= "#{h @page_title} - " if @page_title %><%= 'Beast'[:beast_title] %></title>
+  <%= stylesheet_link_tag 'blueprint/screen','styles', :media => 'screen, projection'%>
+  <%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
+  <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/flick/jquery-ui.css" %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js","application" %>
+
+    <%#= stylesheet_link_tag 'savage_beast/display' %>
+    <%= stylesheet_link_tag 'forum' %>
+
+    
+    <%# Assumption: If you're a rails project, you already have your own version of these, and don't need the SB version %>
+    <%= javascript_include_tag "prototype", "effects" %>
+    <%= javascript_include_tag "savage_beast/beast" %>
+    <% unless @feed_icons.blank? -%>
+    <% @feed_icons.each do |feed| -%>
+    <%= auto_discovery_link_tag :rss, feed[:url], :title => "Subscribe to '#{feed[:title]}'" %>
+    <% end -%>
+    <% end -%>
+    <%= head_extras %>
+
+</head>
+<body>
+	<div id="nav-container">
+		<div id="nav">
+			<ul>
+				<li><%= link_to 'HOME', :controller => 'home', :action => 'index' %></li>
+				<li><%= link_to 'ABOUT', :controller => 'about', :action => 'index' %></li>
+				<li><%= link_to 'RUSH', :controller => 'rush', :action => 'index' %></li>
+				<li><%= link_to 'ROSTER', roster_path %></li>
+				<li><%= link_to 'GALLERY', galleries_path %></li>
+				<li><%= link_to 'CALENDAR', calendar_path %></li>
+				<li><%= link_to 'CONTACT', contact_path %></li>
+			</ul>
+			<div id="login-nav">
+				<%= render :partial=>'users/user_bar' %>
+			</div>
+		</div>
+	</div>
+	<div id="logo-header">
+		<div id="logo-content">
+		<%= link_to 'RPI Pi Delta Psi', {:controller => 'home', :action => 'index'}, :id => 'logo' %>
+		</div>
+	</div>
+	<div id="nav1">
+		<div class="container">
+			<div id="search" class="span-18">
+				<%= image_tag 'search-tool01.png', :style=>'float:left;margin: 0.5em 5px 0' %>
+				<% form_tag search_all_posts_url, :method => :get do -%>			
+				<%= text_field_tag :q, params[:q], :size => 80, :id => :search_box %>
+				<%= submit_tag t(:search_title) %>			
+				<% end -%>
+			</div>
+			<div class="span-6 last">
+				<div class="login-forum"><%= beast_user_link %></div>
+			</div>
+		</div>
+	</div>
+	<div class="container-container">
+		<div class="container showgrid1">
+			<div class="span-18">
+				<%= yield %>
+			</div>
+			<div class="span-6 last">
+				<div id="right-sidebar">
+					<%= yield :right %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<%= render :partial=>'layouts/footer' %>
+	</div>
+</body>
+</html>

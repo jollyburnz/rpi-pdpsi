@@ -1,0 +1,18 @@
+<br/>
+<table>
+	<tr>
+		<th>Avatar</th>
+		<th>Login</th>
+		<th>Email</th>
+	</tr>
+	<tr>
+		<td><%= image_tag @user.avatar(:thumb) %></td>
+		<td><%= @user.login %></td>
+		<td><%= @user.email %></td>
+	</tr>
+</table>
+
+<% if current_user.login == @user.login %>
+	<%= link_to 'Edit', edit_user_path %> | 
+	<%= link_to 'Back', forums_path %>
+<%end%>

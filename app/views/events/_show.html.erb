@@ -1,0 +1,24 @@
+
+<span class="ec-event-right"><%= @event.name %></span>
+<br/>
+<br/>
+
+<span id="calendar-date"><%= @event.start_at.strftime("%A, %b %d at %I:%M %p")%> - <%= @event.end_at.strftime("%I:%M %p")%></span>
+<div id="calendar-description">
+	<%= @event.description %>
+	<% if current_user != nil %>
+		<%= link_to 'Edit', edit_event_path(@event), :id => 'edit-event-link' %>
+	<% end %>
+</div>
+
+
+<script>
+	$('#edit-event-link').click(function(){
+		$("#loading").show();
+        $.get($(this).attr("href"), 
+			null, 
+			function(){ $('#loading').hide(); },
+			"script");
+        return false;
+	});
+</script>
